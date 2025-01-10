@@ -18,9 +18,8 @@ echo "c.NotebookApp.allow_origin = 'https://juxlauth.elearn.rwth-aachen.de'" >> 
 echo "Installing JupyterLab Feedback extension..."
 pip install jupyterlab_feedback-0.6.2-py3-none-any.whl
 
-# Cleaning and Building JupyterLab to apply all changes
-echo "Cleaning and Building JupyterLab..."
-jupyter lab clean
+# Building JupyterLab to apply all changes
+echo "Building JupyterLab..."
 jupyter lab build
 
 # Verifying installed JupyterLab extensions
