@@ -19,5 +19,3 @@ dependencies:
       - nbgitpuller
       - jupyterlab_autorun_cells
       - openai
-      - "@juxl/juxl-extension"
-      - "@juxl/logging"
