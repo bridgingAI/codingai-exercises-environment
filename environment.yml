@@ -9,13 +9,15 @@ dependencies:
   - scipy
   - matplotlib=3.5
   - jupyterlab=3.4
-  - cvxopt=1.3
-  - pillow
   - pandas=2.2.1
   - unidecode=1.3.8
+  - cvxopt=1.3
+  - pillow
   - pip
   - pip:
       - jupyterlab-hide-cells==3.0.1
       - nbgitpuller
       - jupyterlab_autorun_cells
       - openai
+      - @juxl/juxl-extension==3.1.1
+      - @juxl/logging==3.1.1
