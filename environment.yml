@@ -18,4 +18,3 @@ dependencies:
       - jupyterlab-hide-cells==3.0.1
       - nbgitpuller
       - jupyterlab_autorun_cells
-      - openai
