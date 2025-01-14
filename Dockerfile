@@ -1,3 +1,6 @@
+# Use an official JupyterLab base image
+FROM jupyter/base-notebook:latest
+
 # Add juxl extension (learning analytics)
 RUN jupyter labextension install \
     @juxl/juxl-extension@^3.1.1 \
