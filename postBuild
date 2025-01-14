@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Оновлення JupyterLab
-echo "Installing JupyterLab extensions..."
-jupyter labextension install @jupyterlab/plotly-extension
+# Оновлюємо JupyterLab
+echo "Building JupyterLab without dev-build and minimize options..."
+jupyter lab build --dev-build=False --minimize=False
 
-# Будуємо JupyterLab для застосування змін
-echo "Building JupyterLab..."
-jupyter lab build
+# Перевірка JupyterLab
+echo "Verifying JupyterLab build..."
+jupyter labextension list
