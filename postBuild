@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Updating JupyterLab
+echo "Updating JupyterLab..."
+pip install --upgrade jupyterlab
+
 # Installing Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
 jupyter labextension install @juxl/juxl-extension@3.1.1
@@ -7,7 +11,7 @@ jupyter labextension install @juxl/logging@3.1.1
 
 # Copying overrides.json to the appropriate location
 echo "Copying JupyterLab settings overrides..."
-mkdir -p /opt/conda/share/jupyter/lab/settings/
+mkdir -p /srv/conda/envs/notebook/share/jupyter/lab/settings
 cp overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
 
 # Updating Jupyter Notebook configuration to allow specific origin
@@ -28,3 +32,4 @@ echo "Verifying JupyterLab extensions..."
 jupyter labextension list
 
 echo "JupyterLab extensions installed successfully."
+
