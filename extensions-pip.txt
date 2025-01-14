@@ -1,5 +1,4 @@
 jupyterlab-hide-cells
 jupyterlab_autorun_cells
 jupyterlab-feedback
-juxl-extension
-logging
+juxl
