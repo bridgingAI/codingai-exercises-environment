@@ -26,3 +26,5 @@ jupyter lab build
 # Verifying installed JupyterLab extensions
 echo "Verifying JupyterLab extensions..."
 jupyter labextension list
+
+echo "JupyterLab extensions installed successfully."
