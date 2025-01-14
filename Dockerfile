@@ -3,7 +3,13 @@ FROM jupyter/base-notebook:latest
 # Встановлюємо JupyterLab
 RUN pip install jupyterlab==3.6.5
 
-# Копіюємо файл overrides.json для налаштувань
+# Оновлюємо npm
+RUN npm install -g npm@latest
+
+# Інсталюємо розширення через JupyterLab extension manager за допомогою npm
+RUN jupyter labextension install @juxl/juxl-extension@^3.1.1 @juxl/logging@^3.1.1
+
+# Копіюємо файл overrides.json
 COPY --chown=1000 overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
 
 # Копіюємо jupyter_config.py
@@ -13,16 +19,9 @@ COPY jupyter_config.py /etc/jupyter/jupyter_notebook_config.py
 ADD jupyterlab_feedback-0.6.2-py3-none-any.whl /tmp/
 RUN pip install /tmp/jupyterlab_feedback-0.6.2-py3-none-any.whl
 
-# Встановлюємо додаткові розширення з extensions-pip.txt
-COPY extensions-pip.txt /tmp/extensions-pip.txt
-RUN pip install -r /tmp/extensions-pip.txt
-
 # Виконуємо додаткові налаштування з postBuild
 COPY postBuild /tmp/postBuild
 RUN bash /tmp/postBuild
 
-# Перевіряємо встановлені розширення, якщо це необхідно
-RUN jupyter lab --version
-
-RUN jupyter labextension list
-
+# Перевіряємо встановлені розширення
+RUN jupyter labextension show
