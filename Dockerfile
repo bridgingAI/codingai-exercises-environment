@@ -19,8 +19,8 @@ RUN . $NVM_DIR/nvm.sh && npm install -g npm@latest
 # Встановлюємо JupyterLab
 RUN pip install jupyterlab==3.6.5
 
-# Інсталюємо розширення через JupyterLab extension manager
-RUN jupyter labextension install @juxl/juxl-extension@^3.1.1 @juxl/logging@^3.1.1
+# Встановлюємо пакет @juxl/juxl з npm
+RUN npm install -g @juxl/juxl
 
 # Копіюємо файл overrides.json
 COPY --chown=1000 overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
