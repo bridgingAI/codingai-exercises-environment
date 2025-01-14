@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Updating JupyterLab
-echo "Updating JupyterLab..."
-pip install --upgrade jupyterlab
-
 # Installing Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
 jupyter labextension install @juxl/juxl-extension@3.1.1
