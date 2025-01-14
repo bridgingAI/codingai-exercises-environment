@@ -1,12 +1,8 @@
 #!/bin/bash
 
-# Step 1: Update JupyterLab to the latest version
-echo "Upgrading JupyterLab to the latest version..."
-pip install --upgrade jupyterlab
-
 # Fixing the jupyter-server conflict
 echo "Fixing jupyter-server version conflict..."
-pip install jupyter-server==1.6.4
+pip install jupyter-server==2.15.0
 
 # Step 2: Install Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
