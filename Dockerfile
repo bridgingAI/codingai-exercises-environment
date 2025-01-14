@@ -1,12 +1,22 @@
 FROM jupyter/base-notebook:latest
 
+# Встановлюємо nvm для керування версіями Node.js
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+
+# Завантажуємо nvm
+ENV NVM_DIR=/root/.nvm
+ENV NODE_VERSION=16.20.1
+
+# Встановлюємо конкретну версію Node.js (наприклад, 16.20.1)
+RUN . $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION
+
+# Встановлюємо npm через nvm
+RUN . $NVM_DIR/nvm.sh && npm install -g npm@latest
+
 # Встановлюємо JupyterLab
 RUN pip install jupyterlab==3.6.5
 
-# Оновлюємо npm
-RUN npm install -g npm@latest
-
-# Інсталюємо розширення через JupyterLab extension manager за допомогою npm
+# Інсталюємо розширення через JupyterLab extension manager
 RUN jupyter labextension install @juxl/juxl-extension@^3.1.1 @juxl/logging@^3.1.1
 
 # Копіюємо файл overrides.json
