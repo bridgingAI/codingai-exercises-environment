@@ -1,5 +1,7 @@
 FROM jupyter/base-notebook:latest
 
+RUN pip install jupyterlab==3.6.5
+
 # Add juxl extension (learning analytics)
 RUN jupyter labextension install \
     @juxl/juxl-extension@^3.1.1 \
@@ -11,3 +13,8 @@ RUN echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aa
 # Add jupyterlab feedback extension (llm)
 ADD jupyterlab_feedback-0.6.2-py3-none-any.whl .
 RUN pip install jupyterlab_feedback-0.6.2-py3-none-any.whl
+
+
+# Перевіряємо встановлені розширення
+RUN jupyter labextension list
+
