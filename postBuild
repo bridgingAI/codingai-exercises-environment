@@ -2,8 +2,8 @@
 
 # Installing Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
-jupyter labextension install @juxl/juxl-extension@3.1.1
-jupyter labextension install @juxl/logging@3.1.1
+jupyter labextension install @juxl/juxl-extension
+jupyter labextension install @juxl/logging
 
 # Copying overrides.json to the appropriate location
 echo "Copying JupyterLab settings overrides..."
