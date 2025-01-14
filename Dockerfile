@@ -3,8 +3,8 @@ FROM jupyter/base-notebook:latest
 # Встановлюємо JupyterLab
 RUN pip install jupyterlab==3.6.5
 
-# Встановлюємо розширення через pip (якщо доступні в pip)
-RUN pip install @juxl/juxl-extension@^3.1.1 @juxl/logging@^3.1.1
+RUN pip install jupyterlab==3.6.5
+RUN pip install juxl-extension==3.1.1 logging==3.1.1
 
 # Копіюємо файл overrides.json для налаштувань
 COPY --chown=1000 overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
@@ -26,3 +26,6 @@ RUN bash /tmp/postBuild
 
 # Перевіряємо встановлені розширення, якщо це необхідно
 RUN jupyter lab --version
+
+RUN jupyter labextension list
+
