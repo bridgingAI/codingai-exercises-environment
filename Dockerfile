@@ -1,6 +1,4 @@
-# Specify parent image. Please select a fixed tag here.
-ARG BASE_IMAGE=registry.git.rwth-aachen.de/jupyter/profiles/rwth-courses:latest
-FROM ${BASE_IMAGE}
+FROM jupyter/base-notebook:latest
 
 # Add juxl extension (learning analytics)
 RUN jupyter labextension install \
