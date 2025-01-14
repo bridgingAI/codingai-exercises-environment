@@ -9,12 +9,15 @@ RUN apt-get update && apt-get install -y curl
 # Встановлюємо nvm для керування версіями Node.js
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
-# Завантажуємо nvm
-ENV NVM_DIR=/root/.nvm
+# Встановлюємо nvm для користувача jovyan, а не root
+ENV NVM_DIR=/home/jovyan/.nvm
 ENV NODE_VERSION=16.20.1
 
 # Встановлюємо конкретну версію Node.js (наприклад, 16.20.1)
-RUN . $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION
+RUN mkdir -p $NVM_DIR && \
+    . $NVM_DIR/nvm.sh && \
+    nvm install $NODE_VERSION && \
+    nvm use $NODE_VERSION
 
 # Встановлюємо npm через nvm
 RUN . $NVM_DIR/nvm.sh && npm install -g npm@latest
