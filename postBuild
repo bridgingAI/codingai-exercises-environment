@@ -1,43 +1,9 @@
 #!/bin/bash
 
-# Fixing the jupyter-server conflict
-echo "Fixing jupyter-server version conflict..."
-pip install jupyter-server==2.15.0
+# Оновлення JupyterLab
+echo "Installing JupyterLab extensions..."
+jupyter labextension install @jupyterlab/plotly-extension
 
-# Step 2: Install Juxl extensions (learning analytics)
-echo "Installing Juxl extensions..."
-# If the Juxl extensions are JupyterLab extensions (not pip packages), use the following commands:
-jupyter labextension install @juxl/juxl-extension
-jupyter labextension install @juxl/logging
-
-
-# Copying overrides.json to the appropriate location
-echo "Copying JupyterLab settings overrides..."
-mkdir -p /srv/conda/envs/notebook/share/jupyter/lab/settings
-cp overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
-
-# Updating Jupyter Notebook configuration to allow specific origin
-echo "Updating Jupyter Notebook configuration..."
-mkdir -p $HOME/.jupyter/
-echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aachen.de'" > $HOME/.jupyter/jupyter_notebook_config.py
-
-# mkdir -p /etc/jupyter/
-# echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aachen.de'" > /etc/jupyter/jupyter_notebook_config.py
-
-# Installing JupyterLab Feedback extension
-echo "Installing JupyterLab Feedback extension..."
-pip install jupyterlab_feedback-0.6.2-py3-none-any.whl
-
-# Building JupyterLab to apply all changes
+# Будуємо JupyterLab для застосування змін
 echo "Building JupyterLab..."
 jupyter lab build
-
-# Step 7: Start JupyterLab
-echo "Starting JupyterLab..."
-jupyter lab
-
-# Verifying installed JupyterLab extensions
-echo "Verifying JupyterLab extensions..."
-jupyter labextension list
-
-echo "JupyterLab extensions installed successfully."
