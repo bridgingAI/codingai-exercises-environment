@@ -2,12 +2,9 @@
 
 # Installing Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
-pip install --force-reinstall jupyterlab-juxl-extension
-pip install --force-reinstall jupyterlab-logging
-
-# jupyter labextension install @juxl/juxl-extension
-# jupyter labextension install @juxl/logging
-# jupyter labextension install @jupyter-server/resource-usage
+jupyter labextension install @juxl/juxl-extension@3.1.1
+jupyter labextension install @juxl/logging@3.1.1
+jupyter labextension install @jupyter-server/resource-usage
 
 # Copying overrides.json to the appropriate location
 echo "Copying JupyterLab settings overrides..."
