@@ -1,6 +1,9 @@
 FROM jupyter/base-notebook:latest
 
-# Встановлюємо curl, необхідний для скачування nvm
+# Отримуємо root-доступ для встановлення curl
+USER root
+
+# Оновлюємо списки пакетів і встановлюємо curl
 RUN apt-get update && apt-get install -y curl
 
 # Встановлюємо nvm для керування версіями Node.js
