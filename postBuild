@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Оновлюємо JupyterLab
-echo "Building JupyterLab without dev-build and minimize options..."
-jupyter lab build --dev-build=False --minimize=False
-
-# Перевірка JupyterLab
-echo "Verifying JupyterLab build..."
+# Check if JupyterLab extensions were installed properly
+echo "Checking installed JupyterLab extensions..."
 jupyter labextension list
+
+# Optionally, you can also check if your custom config was copied correctly
+echo "Checking for overrides.json..."
+cat /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
