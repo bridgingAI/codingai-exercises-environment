@@ -19,5 +19,3 @@ dependencies:
       - nbgitpuller
       - jupyterlab_autorun_cells
       - jupyterlab-feedback==0.6.2
-      - @juxl/juxl-extension
-      - @juxl/logging==3.1.1
