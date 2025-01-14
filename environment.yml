@@ -8,7 +8,7 @@ dependencies:
   - scikit-learn>=1.1
   - scipy
   - matplotlib=3.5
-  - jupyterlab=3.4
+  - jupyterlab=3.4.8
   - pandas=2.2.1
   - pillow
   - pip
