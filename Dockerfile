@@ -1,5 +1,8 @@
 FROM jupyter/base-notebook:latest
 
+# Встановлюємо curl, необхідний для скачування nvm
+RUN apt-get update && apt-get install -y curl
+
 # Встановлюємо nvm для керування версіями Node.js
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
