@@ -1,5 +1,6 @@
-# Use an official JupyterLab base image
-FROM jupyter/base-notebook:latest
+# Specify parent image. Please select a fixed tag here.
+ARG BASE_IMAGE=registry.git.rwth-aachen.de/jupyter/profiles/rwth-courses:latest
+FROM ${BASE_IMAGE}
 
 # Add juxl extension (learning analytics)
 RUN jupyter labextension install \
