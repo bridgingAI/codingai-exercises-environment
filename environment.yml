@@ -18,4 +18,4 @@ dependencies:
       - jupyterlab-hide-cells==3.0.1
       - nbgitpuller
       - jupyterlab_autorun_cells
-      - jupyterlab-feedback==0.6.2
+      - jupyterlab-feedback
