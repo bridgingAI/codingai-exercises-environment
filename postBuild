@@ -1,11 +1,18 @@
 #!/bin/bash
 
+# Step 1: Update JupyterLab to the latest version
+echo "Upgrading JupyterLab to the latest version..."
 pip install --upgrade jupyterlab
 
-# Installing Juxl extensions (learning analytics)
+# Fixing the jupyter-server conflict
+echo "Fixing jupyter-server version conflict..."
+pip install jupyter-server==1.8.2
+
+# Step 2: Install Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
-pip install @juxl/juxl-extension
-pip install @juxl/logging
+# If the Juxl extensions are JupyterLab extensions (not pip packages), use the following commands:
+jupyter labextension install @juxl/juxl-extension
+jupyter labextension install @juxl/logging
 
 
 # Copying overrides.json to the appropriate location
