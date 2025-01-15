@@ -5,6 +5,15 @@
             "authentication": {
                 "python-environment": "JUPYTERHUB_API_TOKEN"
             }
+        },
+        "agent": "pseudonymous",
+        "platform": {
+            "profile": "codingai"
+        }
+    },
+    "jupyterlab-feedback:plugin": {
+        "cell-metadata": {
+            "pattern": ["IS.Code", "IS.Markdown"],
             "key": "cell_id"
         },
         "openai-key": {
