@@ -7,7 +7,7 @@ jupyter labextension install @juxl/logging@3.1.1
 
 # Copying overrides.json to the appropriate location
 echo "Copying JupyterLab settings overrides..."
-mkdir -p /opt/conda/share/jupyter/lab/settings/
+mkdir -p /srv/conda/envs/notebook/share/jupyter/lab/settings/
 cp overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
 
 # Updating Jupyter Notebook configuration to allow specific origin
@@ -21,7 +21,7 @@ pip install jupyterlab_feedback-0.6.2-py3-none-any.whl
 
 # Building JupyterLab to apply all changes
 echo "Building JupyterLab..."
-jupyter lab build @juxl/logging@3.1.1
+jupyter lab build
 
 # Verifying installed JupyterLab extensions
 echo "Verifying JupyterLab extensions..."
