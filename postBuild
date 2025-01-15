@@ -10,10 +10,10 @@ echo "Copying JupyterLab settings overrides..."
 mkdir -p /srv/conda/envs/notebook/share/jupyter/lab/settings/
 cp overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
 
-# Updating Jupyter Notebook configuration to allow specific origin
+# Updating Jupyter Notebook configuration
 echo "Updating Jupyter Notebook configuration..."
-mkdir -p /etc/jupyter/
-echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aachen.de'" > /etc/jupyter/jupyter_notebook_config.py
+mkdir -p /srv/conda/envs/notebook/etc/jupyter/
+echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aachen.de'" > /srv/conda/envs/notebook/etc/jupyter/jupyter_notebook_config.py
 
 # Installing JupyterLab Feedback extension
 echo "Installing JupyterLab Feedback extension..."
