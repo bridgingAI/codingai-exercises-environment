@@ -2,23 +2,26 @@
 
 # Installing Juxl extensions (learning analytics)
 echo "Installing Juxl extensions..."
-jupyter labextension install @juxl/juxl-extension@3.1.2 --no-build
-jupyter labextension install @juxl/logging@3.1.1 --no-build
-jupyter lab build
+jupyter labextension install @juxl/juxl-extension@^3.1.1
+jupyter labextension install @juxl/logging@^3.1.1
 
 # Copying overrides.json to the appropriate location
 echo "Copying JupyterLab settings overrides..."
 mkdir -p /srv/conda/envs/notebook/share/jupyter/lab/settings/
 cp overrides.json /srv/conda/envs/notebook/share/jupyter/lab/settings/overrides.json
 
-# Updating Jupyter Notebook configuration
+# Updating Jupyter Notebook configuration to allow specific origin
 echo "Updating Jupyter Notebook configuration..."
-mkdir -p /srv/conda/envs/notebook/etc/jupyter/
-echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aachen.de'" > /srv/conda/envs/notebook/etc/jupyter/jupyter_notebook_config.py
+mkdir -p /etc/jupyter/
+echo "c.NotebookApp.allow_origin = 'https://juxlauth-codingai.elearn.rwth-aachen.de'" > /etc/jupyter/jupyter_notebook_config.py
 
 # Installing JupyterLab Feedback extension
 echo "Installing JupyterLab Feedback extension..."
 pip install jupyterlab_feedback-0.6.2-py3-none-any.whl
+
+# Building JupyterLab to apply all changes
+echo "Building JupyterLab..."
+jupyter lab build
 
 # Verifying installed JupyterLab extensions
 echo "Verifying JupyterLab extensions..."
