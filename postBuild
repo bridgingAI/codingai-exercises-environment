@@ -21,7 +21,7 @@ pip install jupyterlab_feedback-0.6.2-py3-none-any.whl
 
 # Building JupyterLab to apply all changes
 echo "Building JupyterLab..."
-jupyter lab build
+jupyter lab build @juxl/logging@3.1.1
 
 # Verifying installed JupyterLab extensions
 echo "Verifying JupyterLab extensions..."
